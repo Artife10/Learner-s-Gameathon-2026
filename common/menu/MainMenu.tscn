@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://chby4n1kau3i1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xeicj"]
+font_size = 42
+
+[node name="MainMenu" type="Control" unique_id=220389654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Panel" parent="." unique_id=821308756]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=456995724]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16700001
+anchor_right = 0.83300006
+anchor_bottom = 1.0
+offset_left = -0.12800598
+offset_top = 308.5
+offset_right = 0.12799072
+offset_bottom = -308.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menu/VBoxContainer" unique_id=832475359]
+layout_mode = 2
+text = "Start"
+
+[node name="Settings" type="Button" parent="Menu/VBoxContainer" unique_id=542044233]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="Credits" type="Button" parent="Menu/VBoxContainer" unique_id=2129804457]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Menu/VBoxContainer" unique_id=781080142]
+layout_mode = 2
+text = "Quit"
+
+[node name="Credits" type="Panel" parent="." unique_id=81167811]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_right = 0.94400007
+anchor_bottom = 1.0
+offset_left = -0.12802124
+offset_top = 64.0
+offset_right = 0.5119629
+offset_bottom = -72.0
+
+[node name="Label" type="Label" parent="Credits" unique_id=295941599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MADE BY:
+VID and Artifex
+
+For the
+ \"Learner's Gameathon 2026\"
+ game jam"
+label_settings = SubResource("LabelSettings_xeicj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Panel" parent="." unique_id=1547775324]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_right = 0.94400007
+anchor_bottom = 1.0
+offset_left = -0.12802124
+offset_top = 64.0
+offset_right = 0.5119629
+offset_bottom = -72.0
+
+[node name="Panel" type="VBoxContainer" parent="Settings" unique_id=1809178438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = -64.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullScreen" type="CheckBox" parent="Settings/Panel" unique_id=167051045]
+layout_mode = 2
+text = "FULLSCREEN"
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Settings/Panel" unique_id=695432728]
+layout_mode = 2
+
+[node name="VolumeText" type="Label" parent="Settings/Panel" unique_id=615774583]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Volume" type="HSlider" parent="Settings/Panel" unique_id=1520188268]
+layout_mode = 2
+value = 80.0
+
+[node name="HSeparator2" type="HSeparator" parent="Settings/Panel" unique_id=838724228]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="Settings/Panel" unique_id=958148773]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Music2" type="HSlider" parent="Settings/Panel" unique_id=1353705537]
+layout_mode = 2
+value = 80.0
+
+[node name="HSeparator3" type="HSeparator" parent="Settings/Panel" unique_id=2121814303]
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="Settings/Panel" unique_id=526402038]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="Sfx2" type="HSlider" parent="Settings/Panel" unique_id=1039256501]
+layout_mode = 2
+value = 80.0
+
+[node name="HSeparator4" type="HSeparator" parent="Settings/Panel" unique_id=949436949]
+layout_mode = 2
