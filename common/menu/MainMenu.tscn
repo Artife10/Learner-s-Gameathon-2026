@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://chby4n1kau3i1"]
 
+[ext_resource type="Script" uid="uid://vsosrwst0xrg" path="res://common/menu/settings.gd" id="1_w0gw1"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_xeicj"]
 font_size = 42
 
@@ -12,9 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" type="Panel" parent="." unique_id=821308756]
-layout_mode = 0
-offset_right = 384.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_right = 0.3840027
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=456995724]
 layout_mode = 1
@@ -56,7 +60,7 @@ anchor_bottom = 1.0
 offset_left = -0.12802124
 offset_top = 64.0
 offset_right = 0.5119629
-offset_bottom = -72.0
+offset_bottom = -64.0
 
 [node name="Label" type="Label" parent="Credits" unique_id=295941599]
 layout_mode = 1
@@ -76,6 +80,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Settings" type="Panel" parent="." unique_id=1547775324]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.38900003
@@ -84,7 +89,8 @@ anchor_bottom = 1.0
 offset_left = -0.12802124
 offset_top = 64.0
 offset_right = 0.5119629
-offset_bottom = -72.0
+offset_bottom = -64.0
+script = ExtResource("1_w0gw1")
 
 [node name="Panel" type="VBoxContainer" parent="Settings" unique_id=1809178438]
 layout_mode = 1
@@ -100,7 +106,8 @@ grow_vertical = 2
 
 [node name="FullScreen" type="CheckBox" parent="Settings/Panel" unique_id=167051045]
 layout_mode = 2
-text = "FULLSCREEN"
+button_pressed = true
+text = "Fullscreen"
 alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Settings/Panel" unique_id=695432728]
@@ -112,7 +119,8 @@ text = "Master Volume"
 
 [node name="Volume" type="HSlider" parent="Settings/Panel" unique_id=1520188268]
 layout_mode = 2
-value = 80.0
+min_value = -80.0
+max_value = 6.0
 
 [node name="HSeparator2" type="HSeparator" parent="Settings/Panel" unique_id=838724228]
 layout_mode = 2
@@ -123,7 +131,8 @@ text = "Music Volume"
 
 [node name="Music2" type="HSlider" parent="Settings/Panel" unique_id=1353705537]
 layout_mode = 2
-value = 80.0
+min_value = -80.0
+max_value = 6.0
 
 [node name="HSeparator3" type="HSeparator" parent="Settings/Panel" unique_id=2121814303]
 layout_mode = 2
@@ -134,7 +143,13 @@ text = "SFX Volume"
 
 [node name="Sfx2" type="HSlider" parent="Settings/Panel" unique_id=1039256501]
 layout_mode = 2
-value = 80.0
+min_value = -80.0
+max_value = 6.0
 
 [node name="HSeparator4" type="HSeparator" parent="Settings/Panel" unique_id=949436949]
 layout_mode = 2
+
+[connection signal="pressed" from="Menu/VBoxContainer/Settings" to="Settings" method="_on_settings_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Credits" to="Settings" method="_on_credits_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Quit" to="Settings" method="_on_quit_pressed"]
+[connection signal="toggled" from="Settings/Panel/FullScreen" to="Settings" method="_on_full_screen_toggled"]

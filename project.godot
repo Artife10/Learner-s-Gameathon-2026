@@ -15,6 +15,16 @@ run/main_scene="uid://chby4n1kau3i1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bd4dmwkafpmr"
+
+[display]
+
+window/size/mode=3
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
