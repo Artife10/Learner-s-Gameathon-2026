@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b8ejxuqx8ocp1"]
+
+[ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
+[ext_resource type="Shader" uid="uid://bwigmqigomxph" path="res://assets/materials/shaders/space.gdshader" id="2_381wa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkbkp"]
+shader = ExtResource("2_381wa")
+shader_parameter/stars_speed = Vector2(0, 0)
+shader_parameter/stars_density = 0.01
+
+[node name="World" type="Node2D" unique_id=2012896987]
+
+[node name="Player" parent="." unique_id=173089196 instance=ExtResource("1_mt50j")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1995956723]
+material = SubResource("ShaderMaterial_hkbkp")
+offset_left = -2792.0
+offset_top = -2440.0
+offset_right = 2584.0
+offset_bottom = 2440.0

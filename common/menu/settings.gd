@@ -6,6 +6,7 @@ extends Panel
 @onready var quit: Button = $"../Menu/VBoxContainer/Quit"
 @onready var credits: Panel = $"../Credits"
 @onready var settings: Panel = $"."
+const WORLD = preload("uid://b8ejxuqx8ocp1")
 
 
 func _ready() -> void:
@@ -46,3 +47,7 @@ func _on_full_screen_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_packed(WORLD)

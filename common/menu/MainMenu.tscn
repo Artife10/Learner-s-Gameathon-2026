@@ -149,6 +149,7 @@ max_value = 6.0
 [node name="HSeparator4" type="HSeparator" parent="Settings/Panel" unique_id=949436949]
 layout_mode = 2
 
+[connection signal="pressed" from="Menu/VBoxContainer/Start" to="Settings" method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Settings" to="Settings" method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Credits" to="Settings" method="_on_credits_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit" to="Settings" method="_on_quit_pressed"]
