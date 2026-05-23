@@ -1,20 +1,115 @@
 [gd_scene format=3 uid="uid://b8ejxuqx8ocp1"]
 
 [ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
-[ext_resource type="Shader" uid="uid://bwigmqigomxph" path="res://assets/materials/shaders/space.gdshader" id="2_381wa"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkbkp"]
-shader = ExtResource("2_381wa")
-shader_parameter/stars_speed = Vector2(0, 0)
-shader_parameter/stars_density = 0.01
+[sub_resource type="QuadMesh" id="QuadMesh_381wa"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_mt50j"]
+offsets = PackedFloat32Array(0.79518074, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.9725091, 0.76472855, 0.8790123, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_381wa"]
+noise_type = 0
+frequency = 0.1002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hkbkp"]
+noise = SubResource("FastNoiseLite_381wa")
+color_ramp = SubResource("Gradient_mt50j")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="Gradient" id="Gradient_hkbkp"]
+offsets = PackedFloat32Array(0.79518074, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.9725091, 0.76472855, 0.8790123, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u7q7b"]
+noise_type = 0
+frequency = 0.1002
+offset = Vector3(0, 15.75, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ufqc"]
+noise = SubResource("FastNoiseLite_u7q7b")
+color_ramp = SubResource("Gradient_hkbkp")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_mt50j"]
+size = Vector2(20, 20)
+
+[sub_resource type="Gradient" id="Gradient_381wa"]
+offsets = PackedFloat32Array(0, 0.6566265, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.972549, 0.7647059, 0.8784314, 0.10980392, 0.972549, 0.48235294, 0.8784314, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hkbkp"]
+noise_type = 0
+seed = 7
+frequency = 0.006
+offset = Vector3(0, 1000, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7q7b"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_hkbkp")
+color_ramp = SubResource("Gradient_381wa")
+seamless = true
+in_3d_space = true
 
 [node name="World" type="Node2D" unique_id=2012896987]
 
 [node name="Player" parent="." unique_id=173089196 instance=ExtResource("1_mt50j")]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1995956723]
-material = SubResource("ShaderMaterial_hkbkp")
-offset_left = -2792.0
-offset_top = -2440.0
-offset_right = 2584.0
-offset_bottom = 2440.0
+[node name="Background" type="ParallaxBackground" parent="." unique_id=23896314]
+
+[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=109264604]
+repeat_size = Vector2(1280, 1280)
+repeat_times = 24
+follow_viewport = false
+
+[node name="ColorRect" type="MeshInstance2D" parent="Background/Parallax2D" unique_id=1491100279]
+texture_filter = 1
+position = Vector2(87.75, 59.75)
+scale = Vector2(128, 128)
+mesh = SubResource("QuadMesh_381wa")
+texture = SubResource("NoiseTexture2D_hkbkp")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background" unique_id=1495259736]
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(1280, 1280)
+repeat_times = 24
+follow_viewport = false
+
+[node name="ColorRect" type="MeshInstance2D" parent="Background/Parallax2D4" unique_id=768640875]
+texture_filter = 1
+position = Vector2(87.75, 59.75)
+scale = Vector2(128, 128)
+mesh = SubResource("QuadMesh_381wa")
+texture = SubResource("NoiseTexture2D_3ufqc")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background" unique_id=790429163]
+scroll_scale = Vector2(1.5, 1.5)
+repeat_size = Vector2(2560, 2560)
+repeat_times = 24
+follow_viewport = false
+
+[node name="ColorRect2" type="MeshInstance2D" parent="Background/Parallax2D3" unique_id=733618196]
+modulate = Color(1, 1, 1, 0.83137256)
+texture_filter = 1
+position = Vector2(87.75, 59.75)
+scale = Vector2(128, 128)
+mesh = SubResource("QuadMesh_mt50j")
+texture = SubResource("NoiseTexture2D_u7q7b")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background" unique_id=628691741]
+scroll_scale = Vector2(2, 2)
+repeat_size = Vector2(2560, 2560)
+repeat_times = 24
+follow_viewport = false
+
+[node name="ColorRect2" type="MeshInstance2D" parent="Background/Parallax2D2" unique_id=1566482810]
+modulate = Color(1, 1, 1, 0.41960785)
+texture_filter = 1
+position = Vector2(87.75, 59.75)
+scale = Vector2(128, 128)
+mesh = SubResource("QuadMesh_mt50j")
+texture = SubResource("NoiseTexture2D_u7q7b")
