@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8ejxuqx8ocp1"]
 
 [ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
+[ext_resource type="Texture2D" uid="uid://dsan2iqduia73" path="res://assets/materials/sprites/Planets/Moon.png" id="2_381wa"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_381wa"]
 size = Vector2(10, 10)
@@ -63,7 +64,7 @@ in_3d_space = true
 
 [node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=109264604]
 repeat_size = Vector2(1280, 1280)
-repeat_times = 24
+repeat_times = 48
 follow_viewport = false
 
 [node name="ColorRect" type="MeshInstance2D" parent="Background/Parallax2D" unique_id=1491100279]
@@ -99,6 +100,18 @@ position = Vector2(87.75, 59.75)
 scale = Vector2(128, 128)
 mesh = SubResource("QuadMesh_mt50j")
 texture = SubResource("NoiseTexture2D_u7q7b")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Background" unique_id=1250633741]
+
+[node name="Parallax2D6" type="Parallax2D" parent="Background" unique_id=1546816843]
+scroll_scale = Vector2(1.5, 1.5)
+follow_viewport = false
+
+[node name="Moon" type="Sprite2D" parent="Background/Parallax2D6" unique_id=1744704414]
+texture_filter = 1
+position = Vector2(-2024, -1220)
+scale = Vector2(8.5, 8.5)
+texture = ExtResource("2_381wa")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Background" unique_id=628691741]
 scroll_scale = Vector2(2, 2)
