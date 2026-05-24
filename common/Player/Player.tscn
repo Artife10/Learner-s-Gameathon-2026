@@ -530,3 +530,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lse22")
 animation = &"MoveBackwards"
 autoplay = "Idle"
+
+[node name="Frate" type="Timer" parent="." unique_id=274533310]
+wait_time = 0.4
+one_shot = true

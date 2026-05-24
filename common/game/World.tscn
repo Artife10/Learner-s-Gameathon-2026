@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
 [ext_resource type="Texture2D" uid="uid://dsan2iqduia73" path="res://assets/materials/sprites/Planets/Moon.png" id="2_381wa"]
 [ext_resource type="PackedScene" uid="uid://dah60hxoroth1" path="res://common/Data/Data.tscn" id="3_hkbkp"]
+[ext_resource type="PackedScene" uid="uid://lm4vr6dr2r1a" path="res://common/enemies/Enemy1.tscn" id="4_u7q7b"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_381wa"]
 size = Vector2(10, 10)
@@ -64,6 +65,7 @@ in_3d_space = true
 [node name="Background" type="ParallaxBackground" parent="." unique_id=23896314]
 
 [node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=109264604]
+scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1280, 1280)
 repeat_times = 48
 follow_viewport = false
@@ -76,7 +78,7 @@ mesh = SubResource("QuadMesh_381wa")
 texture = SubResource("NoiseTexture2D_hkbkp")
 
 [node name="Parallax2D4" type="Parallax2D" parent="Background" unique_id=1495259736]
-scroll_scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(1280, 1280)
 repeat_times = 24
 follow_viewport = false
@@ -89,7 +91,7 @@ mesh = SubResource("QuadMesh_381wa")
 texture = SubResource("NoiseTexture2D_3ufqc")
 
 [node name="Parallax2D3" type="Parallax2D" parent="Background" unique_id=790429163]
-scroll_scale = Vector2(1.5, 1.5)
+scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(2560, 2560)
 repeat_times = 24
 follow_viewport = false
@@ -103,9 +105,10 @@ mesh = SubResource("QuadMesh_mt50j")
 texture = SubResource("NoiseTexture2D_u7q7b")
 
 [node name="Parallax2D5" type="Parallax2D" parent="Background" unique_id=1250633741]
+scroll_scale = Vector2(0.8, 0.8)
 
 [node name="Parallax2D6" type="Parallax2D" parent="Background" unique_id=1546816843]
-scroll_scale = Vector2(1.5, 1.5)
+scroll_scale = Vector2(0.9, 0.9)
 follow_viewport = false
 
 [node name="Moon" type="Sprite2D" parent="Background/Parallax2D6" unique_id=1744704414]
@@ -115,7 +118,6 @@ scale = Vector2(8.5, 8.5)
 texture = ExtResource("2_381wa")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Background" unique_id=628691741]
-scroll_scale = Vector2(2, 2)
 repeat_size = Vector2(2560, 2560)
 repeat_times = 24
 follow_viewport = false
@@ -130,3 +132,42 @@ texture = SubResource("NoiseTexture2D_u7q7b")
 
 [node name="Node2D" parent="." unique_id=1669081754 instance=ExtResource("3_hkbkp")]
 position = Vector2(-296, -112)
+
+[node name="Enemy1" parent="." unique_id=487784355 instance=ExtResource("4_u7q7b")]
+position = Vector2(1672, -336)
+
+[node name="Enemy2" parent="." unique_id=1657993237 instance=ExtResource("4_u7q7b")]
+position = Vector2(1296, -32)
+
+[node name="Enemy3" parent="." unique_id=211252958 instance=ExtResource("4_u7q7b")]
+position = Vector2(1416, 320)
+
+[node name="Enemy4" parent="." unique_id=593595788 instance=ExtResource("4_u7q7b")]
+position = Vector2(312, 808)
+
+[node name="Enemy5" parent="." unique_id=897947380 instance=ExtResource("4_u7q7b")]
+position = Vector2(-640, 928)
+
+[node name="Enemy6" parent="." unique_id=11747223 instance=ExtResource("4_u7q7b")]
+position = Vector2(-1288, 560)
+
+[node name="Enemy7" parent="." unique_id=2014204032 instance=ExtResource("4_u7q7b")]
+position = Vector2(-1624, -224)
+
+[node name="Enemy8" parent="." unique_id=1365790063 instance=ExtResource("4_u7q7b")]
+position = Vector2(-1120, -952)
+
+[node name="Enemy9" parent="." unique_id=1661526088 instance=ExtResource("4_u7q7b")]
+position = Vector2(-344, -1144)
+
+[node name="Enemy10" parent="." unique_id=1909464035 instance=ExtResource("4_u7q7b")]
+position = Vector2(632, -1096)
+
+[node name="Enemy11" parent="." unique_id=622177946 instance=ExtResource("4_u7q7b")]
+position = Vector2(-1384, 88)
+
+[node name="Enemy12" parent="." unique_id=735973014 instance=ExtResource("4_u7q7b")]
+position = Vector2(1224, -704)
+
+[node name="Enemy13" parent="." unique_id=149366855 instance=ExtResource("4_u7q7b")]
+position = Vector2(-800, -928)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7a4845jfiqav"]
+
+[ext_resource type="Script" uid="uid://be18lrdoli6in" path="res://common/projectiles/projectile.gd" id="1_7bx8j"]
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="2_gl1yu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bx8j"]
+radius = 8.0
+
+[node name="Projectile1" type="CharacterBody2D" unique_id=332921529 node_paths=PackedStringArray("SPRITE") groups=["Projectile"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_7bx8j")
+SPRITE = NodePath("Sprite2D")
+damage = 1.0
+sprite = ExtResource("2_gl1yu")
+metadata/_custom_type_script = "uid://be18lrdoli6in"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=596678969]
+shape = SubResource("CircleShape2D_7bx8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=146955611]
+scale = Vector2(0.2, 0.2)

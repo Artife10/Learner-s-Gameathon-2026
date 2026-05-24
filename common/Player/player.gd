@@ -1,5 +1,7 @@
 extends CharacterBody2D
 @onready var body: AnimatedSprite2D = $Body
+@onready var frate: Timer = $Frate
+const PROJECTILE_1 = preload("uid://7a4845jfiqav")
 
 
 const SPEED = 300.0
@@ -11,6 +13,13 @@ var data_counter = 0
 
 
 func _physics_process(delta: float) -> void:
+	if frate.is_stopped():
+		var bullet = PROJECTILE_1.instantiate()
+		self.get_parent().add_child(bullet)
+		bullet.Shoot(get_global_mouse_position(), global_position, 1.5, 500.0)
+		frate.start()
+	
+	
 
 	var directionx := Input.get_axis("left", "right")
 	var directiony := Input.get_axis("up", "down")
