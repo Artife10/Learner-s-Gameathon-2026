@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://c1b4h8lgvmpmj" path="res://assets/materials/sprites/Player/idle/0039.png" id="40_k4og5"]
 [ext_resource type="Texture2D" uid="uid://dmv11pou1jqnb" path="res://assets/materials/sprites/Player/idle/0040.png" id="41_d6wcg"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_hklfp"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4g87c"]
 radius = 32.0
 height = 128.0
@@ -174,10 +176,24 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hklfp"]
+radius = 33.0
+height = 130.0
+
 [node name="Player" type="CharacterBody2D" unique_id=173089196]
 script = ExtResource("1_0o1ci")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=29372970]
+
+[node name="Label" type="Label" parent="Camera2D" unique_id=1771870113]
+unique_name_in_owner = true
+offset_left = -547.0
+offset_top = -300.0
+offset_right = -505.0
+offset_bottom = -277.0
+text = "Data:"
+label_settings = SubResource("LabelSettings_hklfp")
+uppercase = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1945571448]
 shape = SubResource("CapsuleShape2D_4g87c")
@@ -188,3 +204,10 @@ sprite_frames = SubResource("SpriteFrames_lse22")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.33320144
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1456230257]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1575818209]
+shape = SubResource("CapsuleShape2D_hklfp")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

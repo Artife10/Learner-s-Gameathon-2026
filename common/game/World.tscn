@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8ejxuqx8ocp1"]
 
 [ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
+[ext_resource type="PackedScene" uid="uid://dah60hxoroth1" path="res://common/Data/Data.tscn" id="2_381wa"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_381wa"]
 size = Vector2(10, 10)
@@ -57,6 +58,15 @@ in_3d_space = true
 
 [node name="World" type="Node2D" unique_id=2012896987]
 
+[node name="Node2D4" parent="." unique_id=1669081754 instance=ExtResource("2_381wa")]
+position = Vector2(234, -86)
+
+[node name="Node2D3" parent="." unique_id=1624061902 instance=ExtResource("2_381wa")]
+position = Vector2(-197, -37)
+
+[node name="Node2D2" parent="." unique_id=283484498 instance=ExtResource("2_381wa")]
+position = Vector2(369, -140)
+
 [node name="Player" parent="." unique_id=173089196 instance=ExtResource("1_mt50j")]
 
 [node name="Background" type="ParallaxBackground" parent="." unique_id=23896314]
@@ -109,7 +119,10 @@ follow_viewport = false
 [node name="ColorRect2" type="MeshInstance2D" parent="Background/Parallax2D2" unique_id=1566482810]
 modulate = Color(1, 1, 1, 0.41960785)
 texture_filter = 1
-position = Vector2(87.75, 59.75)
+position = Vector2(63, 109)
 scale = Vector2(128, 128)
 mesh = SubResource("QuadMesh_mt50j")
 texture = SubResource("NoiseTexture2D_u7q7b")
+
+[node name="Node2D" parent="." unique_id=427458798 instance=ExtResource("2_381wa")]
+position = Vector2(76, -69)

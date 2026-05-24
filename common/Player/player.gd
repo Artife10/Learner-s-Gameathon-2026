@@ -4,6 +4,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var data_counter = 0
+@onready var data_label = %Label
+
 
 func _physics_process(delta: float) -> void:
 
@@ -19,3 +22,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Data"):
+		set_count(data_counter + 1)
+		
+
+func set_count(new_data_count: int) -> void:
+	data_counter = new_data_count
+	data_label.text = "DATA: " + str(data_counter)
