@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
 [ext_resource type="Texture2D" uid="uid://dsan2iqduia73" path="res://assets/materials/sprites/Planets/Moon.png" id="2_381wa"]
+[ext_resource type="PackedScene" uid="uid://dah60hxoroth1" path="res://common/Data/Data.tscn" id="3_hkbkp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_381wa"]
 size = Vector2(10, 10)
@@ -126,3 +127,6 @@ position = Vector2(87.75, 59.75)
 scale = Vector2(128, 128)
 mesh = SubResource("QuadMesh_mt50j")
 texture = SubResource("NoiseTexture2D_u7q7b")
+
+[node name="Node2D" parent="." unique_id=1669081754 instance=ExtResource("3_hkbkp")]
+position = Vector2(-296, -112)

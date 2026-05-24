@@ -122,6 +122,9 @@
 [ext_resource type="Texture2D" uid="uid://bku8s23xau5yi" path="res://assets/materials/sprites/Player/movebackwards/0039.png" id="120_8kxf5"]
 [ext_resource type="Texture2D" uid="uid://c0m8bt2phhv2u" path="res://assets/materials/sprites/Player/movebackwards/0040.png" id="121_nlqk5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ggi4j"]
+font_size = 64
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4g87c"]
 radius = 32.0
 height = 128.0
@@ -504,12 +507,20 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=173089196]
+[node name="Player" type="CharacterBody2D" unique_id=173089196 node_paths=PackedStringArray("data_label") groups=["Player"]]
 script = ExtResource("1_0o1ci")
+data_label = NodePath("Camera2D/Data")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=29372970]
 zoom = Vector2(0.6, 0.6)
-position_smoothing_enabled = true
+
+[node name="Data" type="Label" parent="Camera2D" unique_id=1799361208]
+offset_left = -936.0
+offset_top = -520.0
+offset_right = -360.0
+offset_bottom = -424.0
+text = "DATA: x"
+label_settings = SubResource("LabelSettings_ggi4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1945571448]
 shape = SubResource("CapsuleShape2D_4g87c")

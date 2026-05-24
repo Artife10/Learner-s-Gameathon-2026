@@ -7,7 +7,7 @@ const DECEL = 10.0
 const ACCEL = 20.0
 
 var data_counter = 0
-@onready var data_label = %Label
+@export var data_label : Label
 
 
 func _physics_process(delta: float) -> void:
@@ -34,11 +34,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Data"):
-		set_count(data_counter + 1)
-		
-
-func set_count(new_data_count: int) -> void:
-	data_counter = new_data_count
+func add_count(data_count: int) -> void:
+	data_counter += data_count
 	data_label.text = "DATA: " + str(data_counter)
