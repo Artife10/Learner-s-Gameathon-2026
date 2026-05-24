@@ -15,6 +15,9 @@ var directiony = 0
 var directionx = 0
 func _physics_process(delta: float) -> void:
 	
+	if global_position.distance_to(player.global_position) > 1500:
+		queue_free()
+	
 	if 0 >= hp:
 		var data = DATA.instantiate()
 		add_sibling(data)
@@ -36,9 +39,9 @@ func _physics_process(delta: float) -> void:
 		directionx = 0
 	
 	if SPEED > abs(velocity.x):
-		velocity.x += directionx * ACCEL
+		velocity.x += directionx * ACCEL * randf_range(0.8, 1.2)
 	if SPEED > abs(velocity.y):
-		velocity.y += directiony * ACCEL
+		velocity.y += directiony * ACCEL * randf_range(0.8, 1.2)
 	velocity.x = move_toward(velocity.x, 0, ACCEL/2)
 	velocity.y = move_toward(velocity.y, 0, ACCEL/2)
 

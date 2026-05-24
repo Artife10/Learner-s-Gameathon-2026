@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5xtruvv5ff75" path="res://common/Player/Player.tscn" id="1_mt50j"]
 [ext_resource type="Texture2D" uid="uid://dsan2iqduia73" path="res://assets/materials/sprites/Planets/Moon.png" id="2_381wa"]
-[ext_resource type="PackedScene" uid="uid://dah60hxoroth1" path="res://common/Data/Data.tscn" id="3_hkbkp"]
-[ext_resource type="PackedScene" uid="uid://lm4vr6dr2r1a" path="res://common/enemies/Enemy1.tscn" id="4_u7q7b"]
+[ext_resource type="Script" uid="uid://bdlw55wod11xi" path="res://common/game/enemy_spawner.gd" id="2_hkbkp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_381wa"]
 size = Vector2(10, 10)
@@ -61,6 +60,13 @@ in_3d_space = true
 [node name="World" type="Node2D" unique_id=2012896987]
 
 [node name="Player" parent="." unique_id=173089196 instance=ExtResource("1_mt50j")]
+
+[node name="EnemySpawner" type="Node2D" parent="Player" unique_id=1129125590]
+script = ExtResource("2_hkbkp")
+
+[node name="Timer" type="Timer" parent="Player/EnemySpawner" unique_id=490193506]
+wait_time = 20.0
+one_shot = true
 
 [node name="Background" type="ParallaxBackground" parent="." unique_id=23896314]
 
@@ -129,45 +135,3 @@ position = Vector2(87.75, 59.75)
 scale = Vector2(128, 128)
 mesh = SubResource("QuadMesh_mt50j")
 texture = SubResource("NoiseTexture2D_u7q7b")
-
-[node name="Node2D" parent="." unique_id=1669081754 instance=ExtResource("3_hkbkp")]
-position = Vector2(-296, -112)
-
-[node name="Enemy1" parent="." unique_id=487784355 instance=ExtResource("4_u7q7b")]
-position = Vector2(1672, -336)
-
-[node name="Enemy2" parent="." unique_id=1657993237 instance=ExtResource("4_u7q7b")]
-position = Vector2(1296, -32)
-
-[node name="Enemy3" parent="." unique_id=211252958 instance=ExtResource("4_u7q7b")]
-position = Vector2(1416, 320)
-
-[node name="Enemy4" parent="." unique_id=593595788 instance=ExtResource("4_u7q7b")]
-position = Vector2(312, 808)
-
-[node name="Enemy5" parent="." unique_id=897947380 instance=ExtResource("4_u7q7b")]
-position = Vector2(-640, 928)
-
-[node name="Enemy6" parent="." unique_id=11747223 instance=ExtResource("4_u7q7b")]
-position = Vector2(-1288, 560)
-
-[node name="Enemy7" parent="." unique_id=2014204032 instance=ExtResource("4_u7q7b")]
-position = Vector2(-1624, -224)
-
-[node name="Enemy8" parent="." unique_id=1365790063 instance=ExtResource("4_u7q7b")]
-position = Vector2(-1120, -952)
-
-[node name="Enemy9" parent="." unique_id=1661526088 instance=ExtResource("4_u7q7b")]
-position = Vector2(-344, -1144)
-
-[node name="Enemy10" parent="." unique_id=1909464035 instance=ExtResource("4_u7q7b")]
-position = Vector2(632, -1096)
-
-[node name="Enemy11" parent="." unique_id=622177946 instance=ExtResource("4_u7q7b")]
-position = Vector2(-1384, 88)
-
-[node name="Enemy12" parent="." unique_id=735973014 instance=ExtResource("4_u7q7b")]
-position = Vector2(1224, -704)
-
-[node name="Enemy13" parent="." unique_id=149366855 instance=ExtResource("4_u7q7b")]
-position = Vector2(-800, -928)
