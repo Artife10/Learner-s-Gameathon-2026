@@ -5,10 +5,11 @@ const PROJECTILE_1 = preload("uid://7a4845jfiqav")
 @onready var arm: Sprite2D = $Body/Arm
 @onready var pos: Marker2D = $Body/Arm/Pos
 
-
 var SPEED = 300.0
 const DECEL = 10.0
 var ACCEL = 20.0
+
+var CanBoost = true
 
 var data_counter = 0
 @export var data_label : Label
@@ -29,11 +30,15 @@ func _physics_process(delta: float) -> void:
 	var directiony := Input.get_axis("up", "down")
 	
 	if Input.is_action_just_pressed("boost"):
-		SPEED = SPEED*2
-		ACCEL = ACCEL*2
-	elif Input.is_action_just_released("boost"):
-		SPEED = 300
-		ACCEL = 20.0
+		if CanBoost:
+			CanBoost = false
+			SPEED = SPEED*2
+			ACCEL = ACCEL*2
+			await get_tree().create_timer(0.5).timeout
+			SPEED = 300
+			ACCEL = 20.0
+			get_tree().create_timer(5).timeout.connect(func(): CanBoost = true)
+		
 	
 	if directionx or directiony:
 		if directionx:
