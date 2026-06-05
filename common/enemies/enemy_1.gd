@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 const DATA = preload("uid://dah60hxoroth1")
 
@@ -33,8 +34,10 @@ func _physics_process(delta: float) -> void:
 	
 	if player.global_position.x > global_position.x:
 		directionx = 1
+		sprite.flip_h = true
 	elif global_position.x > player.global_position.x:
 		directionx = -1
+		sprite.flip_h = false
 	else:
 		directionx = 0
 	
@@ -53,3 +56,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		hp-= body.GetDam()
 		velocity = - global_position.direction_to(player.global_position) * SPEED
 		body.queue_free()
+	if body.is_in_group("Player"):
+		body.Damage(5)
+		velocity = - global_position.direction_to(player.global_position) * SPEED*5
+		

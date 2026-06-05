@@ -2,6 +2,8 @@ extends CharacterBody2D
 @onready var body: AnimatedSprite2D = $Body
 @onready var frate: Timer = $Frate
 const PROJECTILE_1 = preload("uid://7a4845jfiqav")
+@onready var arm: Sprite2D = $Body/Arm
+@onready var pos: Marker2D = $Body/Arm/Pos
 
 
 var SPEED = 300.0
@@ -10,13 +12,15 @@ var ACCEL = 20.0
 
 var data_counter = 0
 @export var data_label : Label
-
+var damage = 3
 
 func _physics_process(delta: float) -> void:
+	arm.look_at(get_global_mouse_position())
 	if frate.is_stopped():
 		var bullet = PROJECTILE_1.instantiate()
 		self.get_parent().add_child(bullet)
-		bullet.Shoot(get_global_mouse_position(), global_position, 1.5, 500.0)
+		bullet.Shoot(get_global_mouse_position(), pos.global_position, damage, 500.0)
+		bullet = null
 		frate.start()
 	
 	
@@ -32,12 +36,6 @@ func _physics_process(delta: float) -> void:
 		ACCEL = 20.0
 	
 	if directionx or directiony:
-		if directiony > 0:
-			body.play("Move")
-		elif 0 > directiony:
-			body.play("MoveBackwards")
-		else:
-			body.play("Move")
 		if directionx:
 			body.scale.x = directionx
 		if SPEED > abs(velocity.x):
@@ -46,8 +44,6 @@ func _physics_process(delta: float) -> void:
 			
 		if SPEED > abs(velocity.y):
 			velocity.y += directiony * ACCEL
-	else:
-		body.play("Idle")
 	
 	velocity.x = move_toward(velocity.x, 0, DECEL)
 	velocity.y = move_toward(velocity.y, 0, DECEL)
@@ -57,3 +53,6 @@ func _physics_process(delta: float) -> void:
 func add_count(data_count: int) -> void:
 	data_counter += data_count
 	data_label.text = "DATA: " + str(data_counter)
+
+func Damage(dmg):
+	pass

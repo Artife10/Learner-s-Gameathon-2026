@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://lm4vr6dr2r1a"]
 
-[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_jmof7"]
 [ext_resource type="Script" uid="uid://bs2yncneqm74i" path="res://common/enemies/enemy_1.gd" id="1_plsgh"]
+[ext_resource type="Texture2D" uid="uid://cbdg5q4oijvmg" path="res://assets/materials/sprites/enemies/Ball.png" id="2_plsgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jmof7"]
-radius = 32.984844
+radius = 20.024984
 
 [node name="Enemy1" type="CharacterBody2D" unique_id=487784355]
 collision_layer = 2
@@ -14,15 +14,14 @@ script = ExtResource("1_plsgh")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2016015532]
 modulate = Color(1, 1, 0, 1)
 texture_filter = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_jmof7")
+texture = ExtResource("2_plsgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=865228527]
 shape = SubResource("CircleShape2D_jmof7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1164482030]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=23528715]
 shape = SubResource("CircleShape2D_jmof7")
